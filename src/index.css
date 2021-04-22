@@ -1,13 +1,131 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --color-light: #eeebdd;
+    --color-dark: #1b1717;
+    --color-first: #ce1212;
+    --color-second: #810000;
+}
+
+body {
+    background: var(--color-light);
+    color: var(--color-dark);
+    font-family: 'Inter', sans-serif;
+}
+
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: 3rem auto;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+h3 {
+    margin: 2rem 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    border: 3px solid var(--color-dark);
+    border-radius: 0;
+    outline: none;
+    font-size: 1.3rem;
+    padding: .6rem .6rem;
+}
+
+form button {
+    display: block;
+    width: 100%;
+    outline: none;
+    background: var(--color-dark);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1rem 0;
+    font-size: 1rem;
+    border: none;
+    font-family: 'Inter';
+    padding: .6rem .6rem;
+}
+
+#filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+#filters button {
+    background: #fff;
+    border: 2px solid rgb(189, 189, 189);
+    color:var(--color-dark);
+    padding: .4rem;
+    font-size: 1rem;
+    outline: none;
+    font-weight: bold;
+}
+
+#filters button:focus {
+    border: 2px solid var(--color-dark);
+}
+
+#todo-list {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+}
+
+.todo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.todo .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+.todo .actions button {
+    background: #fff;
+    border: 2px solid rgb(189, 189, 189);
+    color:var(--color-dark);
+    padding: .4rem;
+    font-size: 1rem;
+    outline: none;
+    font-weight: bold;
+}
+
+.todo .actions button:focus {
+    border: 2px solid var(--color-dark);
+}
+
+.todo .actions button:nth-child(2) {
+    background: var(--color-first);
+    color: white;
+    border: 2px solid var(--color-first);
+}
+
+.todo .actions button:nth-child(2):focus {
+    border-color: var(--color-second);
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 1rem;
 }
