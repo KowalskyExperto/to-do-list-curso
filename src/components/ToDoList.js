@@ -1,6 +1,6 @@
 import { ToDoListItem } from './ToDoListItem'
 
-export const ToDoList = ({todos, handleDelete, handleToggle}) => {
+export const ToDoList = ({todos, handleDelete, handleToggle, handleEditTodo}) => {
     return (
         <>
             <ul className="list-group list-group-flush">
@@ -10,8 +10,10 @@ export const ToDoList = ({todos, handleDelete, handleToggle}) => {
                         <ToDoListItem
                             todo={todo}
                             index={i}
+                            key={i}
                             handleDelete={handleDelete}
                             handleToggle={handleToggle}
+                            handleEditTodo={handleEditTodo}
                         />
                     )
                 )

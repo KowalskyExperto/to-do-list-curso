@@ -25,6 +25,13 @@ export const TodoApp = () => {
         dispatch(action);
     };
 
+    const handleEditTodo = (editTodo) => {
+        dispatch({
+            type: 'edit',
+            payload: editTodo,
+        })
+    };
+
     const handleToggle = (todoId) => {
         dispatch({
             type: 'toggle',
@@ -48,6 +55,7 @@ export const TodoApp = () => {
                     <ToDoList
                         todos={todos}
                         handleDelete={handleDelete}
+                        handleEditTodo={handleEditTodo}
                         handleToggle={handleToggle}
                     />
                 </div>

@@ -4,6 +4,12 @@ export const todoReducer = (state = [], action) => {
             return [...state, action.payload];
         case 'delete':
             return state.filter(todo => todo.id !== action.payload);
+        case 'edit':
+            return state.map( todo => 
+                (todo.id === action.payload.id) 
+                    ? {...todo,desc:action.payload.desc}
+                    : todo
+            );
         case 'toggle-old':
             return state.map( todo => {
                 if(todo.id === action.payload) {

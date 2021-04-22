@@ -1,37 +1,35 @@
 import { useForm } from '../hooks/useForm';
 
-export const ToDoAdd = ({handleAddTodo}) => {
-    const [{description}, handleInputChange, reset] = useForm({
-        description: '',
-    });
+export const ToDoEdit = ({handleEditTodo,toDo, handleFormulario}) => {
     
+    const [{description}, handleInputChange, reset] = useForm({
+        description: toDo.desc,
+    });
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
         if(description.trim().length<=1) {
             return;
         }
-        
-        const newTodo = {
-            id: new Date().getTime(),
+        const newToDo = {
+            id: toDo.id,
             desc: description,
-            done: false,
+            done: toDo.done,
         };
-
-        handleAddTodo(newTodo);
+        
+        handleEditTodo(newToDo);
+        handleFormulario();
         reset();
     }
 
     return (
         <>
-            <h4>Agregar TODO</h4>
-            <hr/>
-            <form onSubmit={handleSubmit} key='1'>
+            <form onSubmit={handleSubmit} key={toDo.id}>
                 <input
                     autoComplete="off"
                     name="description"
                     onChange={handleInputChange}
-                    placeholder="Aprender ..."
+                    placeholder="Editar..."
                     type="text"
                     value={description}
                 />
@@ -39,7 +37,7 @@ export const ToDoAdd = ({handleAddTodo}) => {
                     type="submit"
                     className="btn btn-outline-primary ms-2"
                 >
-                    Agregar
+                    Editar
                 </button>
             </form>
         </>
