@@ -24,20 +24,20 @@ export const ToDoAdd = ({handleAddTodo}) => {
 
     return (
         <>
-            <h4>Agregar TODO</h4>
+            <h4>Agregar Tarea</h4>
             <hr/>
             <form onSubmit={handleSubmit} key='1'>
                 <input
                     autoComplete="off"
                     name="description"
                     onChange={handleInputChange}
-                    placeholder="Aprender ..."
+                    placeholder="Tarea nueva ..."
                     type="text"
                     value={description}
                 />
                 <button
                     type="submit"
-                    className="btn btn-outline-primary ms-2"
+                    className=""
                 >
                     Agregar
                 </button>

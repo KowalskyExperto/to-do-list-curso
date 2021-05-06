@@ -4,8 +4,6 @@ import { ToDoList } from './components/ToDoList';
 import { todoReducer } from './components/todoReducer';
 import { ToDoAdd } from './components/ToDoAdd';
 
-import './style.css';
-
 const init = () => {
     return JSON.parse(localStorage.getItem('todos')) || [];
 }
@@ -47,24 +45,20 @@ export const TodoApp = () => {
     };
 
     return (
-        <div>
-            <h1>TodoAPP <small>({todos.length})</small> </h1>
+        <>
+            <h1>Todo APP</h1>
+            <small> Tareas en total: {todos.length}</small>
             <hr/>
-            <div className="row">
-                <div className="col-7">
-                    <ToDoList
-                        todos={todos}
-                        handleDelete={handleDelete}
-                        handleEditTodo={handleEditTodo}
-                        handleToggle={handleToggle}
-                    />
-                </div>
-                <div className="col-5">
-                    <ToDoAdd
-                        handleAddTodo={handleAddTodo}
-                    />
-                </div>
-            </div>
-        </div>
+
+            <ToDoList
+                todos={todos}
+                handleDelete={handleDelete}
+                handleEditTodo={handleEditTodo}
+                handleToggle={handleToggle}
+            />
+            <ToDoAdd
+                handleAddTodo={handleAddTodo}
+            />
+        </>
     )
 }

@@ -1,5 +1,9 @@
 import {useState} from 'react';
 import {ToDoEdit} from './ToDoEdit';
+import { withStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import {Checkbox ,IconButton} from '@material-ui/core';
+
 
 export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEditTodo}) => {
     const [formulario, setFormulario] = useState(false)
@@ -7,6 +11,18 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
     const handleFormulario = () => {
         setFormulario(!formulario)
     }
+    const GreenCheckbox = withStyles({
+        root: {
+          color: green[400],
+          '&$checked': {
+            color: green[600],
+          },
+        },
+        checked: {
+            
+        },
+      })((props) => <Checkbox color="default" {...props} />);
+
     const colocarFormulario = () => {
         if(formulario) {
             return (
@@ -14,23 +30,17 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
                     <ToDoEdit handleEditTodo={handleEditTodo} toDo={todo} handleFormulario={handleFormulario}/>
                 </>
             )
-        }
-        else {
+        }else {
             return (
-                <div>
-                    <p
-                        className={`${todo.done && 'complete'}`}
-                        onClick={()=>handleToggle(todo.id)}
-                    >
-                        {index+1}. {todo.desc}
+                <>
+                    <p>
+                    {todo.desc}
                     </p>
-                    <button 
-                        className="btn"
-                        onClick={handleFormulario}
+                    <IconButton key={index}  variant="contained" size="small" onClick={() => handleFormulario()}
                     >
-                        Editar
-                    </button>
-                </div>
+                        <i className="far fa-edit"></i>
+                    </IconButton>
+                </>
             )
         }
         
@@ -38,18 +48,16 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
 
     return (
         <>
-            <li
-                key={todo.id}
-                className="list-group-item form-false"
+            <div key={todo.index}
+                        className='todo'
+                        
             >
+                <GreenCheckbox/>
                 {colocarFormulario()}
-                <button 
-                    className="btn btn-danger"
-                    onClick={() => handleDelete(todo.id)}
-                >
-                    Borrar
-                </button>
-            </li>
+                <IconButton variant="contained" size="small" onClick={() => handleDelete(todo.id)} key={todo.index}>
+                    <i className="fas fa-trash"></i>
+                </IconButton>
+            </div>
         </>
     )
 }
