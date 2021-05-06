@@ -6,23 +6,29 @@ import {Checkbox ,IconButton} from '@material-ui/core';
 
 
 export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEditTodo}) => {
+
     const [formulario, setFormulario] = useState(false)
     
+    const [check, setCheck] = useState(todo.done)
     const handleFormulario = () => {
         setFormulario(!formulario)
     }
+
+    const handleChangeCheck = () => {
+        handleToggle(todo.id)
+        setCheck(!check)
+    }
+
     const GreenCheckbox = withStyles({
         root: {
-          color: green[400],
-          '&$checked': {
-            color: green[600],
-          },
+            color: green[500],
+            '&$checked': {
+                color: green[900],
+            },
         },
-        checked: {
-            
-        },
-      })((props) => <Checkbox color="default" {...props} />);
-
+        checked: {},
+    })((props) => <Checkbox color="default" {...props} />);
+    
     const colocarFormulario = () => {
         if(formulario) {
             return (
@@ -36,7 +42,7 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
                     <p>
                     {todo.desc}
                     </p>
-                    <IconButton key={index}  variant="contained" size="small" onClick={() => handleFormulario()}
+                    <IconButton key={index}  variant="contained" size="medium" onClick={() => handleFormulario()}
                     >
                         <i className="far fa-edit"></i>
                     </IconButton>
@@ -49,12 +55,12 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
     return (
         <>
             <div key={todo.index}
-                        className='todo'
+                        className={`${todo.done && 'complete'} todo`}
                         
             >
-                <GreenCheckbox/>
+                <GreenCheckbox checked={check} onChange={handleChangeCheck}/>
                 {colocarFormulario()}
-                <IconButton variant="contained" size="small" onClick={() => handleDelete(todo.id)} key={todo.index}>
+                <IconButton variant="contained" size="medium" onClick={() => handleDelete(todo.id)} key={todo.index}>
                     <i className="fas fa-trash"></i>
                 </IconButton>
             </div>

@@ -44,10 +44,13 @@ export const TodoApp = () => {
         });
     };
 
+    const tareasCompletadas = (todos) => todos.filter(t => t.done === true).length;
+
+    const tareasSinCompletar = (todos) => todos.filter(t => t.done === false).length;
     return (
         <>
             <h1>Todo APP</h1>
-            <small> Tareas en total: {todos.length}</small>
+            <small> Tareas en total: {todos.length} Competadas: {tareasCompletadas(todos)} Sin Completar: {tareasSinCompletar(todos)}</small>
             <hr/>
 
             <ToDoList

@@ -23,7 +23,7 @@ export const ToDoEdit = ({handleEditTodo,toDo, handleFormulario}) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} key={toDo.id} focused="true" className="tarea-form">
+            <form onSubmit={handleSubmit} key={toDo.id} className="edit-form">
                 <TextField 
                 id="filled-basic" label="Editar Tarea" variant="filled" 
                     autoComplete="off"
@@ -33,7 +33,7 @@ export const ToDoEdit = ({handleEditTodo,toDo, handleFormulario}) => {
                     type="text"
                     value={description}
                 />
-                <IconButton variant="contained" size="small" onClick={() => handleFormulario()}>
+                <IconButton variant="contained" size="medium" onClick={() => handleFormulario()}>
                     <i className="far fa-check-square"></i>
                 </IconButton>
             </form>
