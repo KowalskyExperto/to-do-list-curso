@@ -18,6 +18,10 @@ body {
   }
 }
 
+.root {
+  width: 100%;
+}
+
 p { word-break: break-all }
 
 .complete {
