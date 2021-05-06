@@ -2,12 +2,13 @@ body {
   align-items: center;
   background-color: white;
   color: black;
-  display: flex;
-  flex-flow: column wrap;
+  /* display: flex; */
+  /* flex-flow: column wrap; */
   font-family: Arial, "Herlvetica Neue", Helvetica, sans-serif;
   font-size: 1rem;
   justify-content: center;
   max-width: 70vw;
+  width: 1000px;
   margin: auto;
   padding: 1rem;
 }
