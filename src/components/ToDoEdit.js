@@ -33,7 +33,7 @@ export const ToDoEdit = ({handleEditTodo,toDo, handleFormulario}) => {
                     type="text"
                     value={description}
                 />
-                <IconButton variant="contained" size="medium" onClick={() => handleFormulario()}>
+                <IconButton variant="contained" size="small" onClick={() => handleFormulario()}>
                     <i className="far fa-check-square"></i>
                 </IconButton>
             </form>

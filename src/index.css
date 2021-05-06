@@ -5,17 +5,20 @@ body {
   display: flex;
   flex-flow: column wrap;
   font-family: Arial, "Herlvetica Neue", Helvetica, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   justify-content: center;
   max-width: 70vw;
   margin: auto;
   padding: 1rem;
-  width: 70%;
 }
 
-#root{
-  width: 100%;
+@media (max-width: 1000px) {
+  body {
+    max-width: 95vw
+  }
 }
+
+p { word-break: break-all }
 
 .complete {
   background-color: #4BB543 !important;

@@ -42,7 +42,7 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
                     <p>
                     {todo.desc}
                     </p>
-                    <IconButton key={index}  variant="contained" size="medium" onClick={() => handleFormulario()}
+                    <IconButton key={index}  variant="contained" size="small" onClick={() => handleFormulario()}
                     >
                         <i className="far fa-edit"></i>
                     </IconButton>
@@ -60,7 +60,7 @@ export const ToDoListItem = ({todo, index, handleDelete, handleToggle, handleEdi
             >
                 <GreenCheckbox checked={check} onChange={handleChangeCheck}/>
                 {colocarFormulario()}
-                <IconButton variant="contained" size="medium" onClick={() => handleDelete(todo.id)} key={todo.index}>
+                <IconButton variant="contained" size="small" onClick={() => handleDelete(todo.id)} key={todo.index}>
                     <i className="fas fa-trash"></i>
                 </IconButton>
             </div>
